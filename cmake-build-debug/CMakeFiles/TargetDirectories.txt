@@ -1,0 +1,3 @@
+/home/ki/CLionProjects/TimeHelper/cmake-build-debug/CMakeFiles/TimeHelper.dir
+/home/ki/CLionProjects/TimeHelper/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/ki/CLionProjects/TimeHelper/cmake-build-debug/CMakeFiles/rebuild_cache.dir
