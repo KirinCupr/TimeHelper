@@ -18,13 +18,16 @@ int main() {
             {
                 cout << "Time for studying!" << endl;
                 clock_t now = clock();
-                while(clock() - now < delay);
+                while(clock() - now < (delay * 2));
                 cout << "Good job!" << endl;
                 break;
             }
             case 2:
             {
-                cout << "Time for break!";
+                cout << "Time for break!" << endl;
+                clock_t now = clock();
+                while(clock() - now < (delay / 2));
+                cout << "Break had ended!" << endl;
                 break;
             }
         }
