@@ -1,1 +1,4 @@
 MathPhysics	2
+	2	2
+	u	4
+	l	4

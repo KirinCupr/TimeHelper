@@ -47,12 +47,17 @@ int main() {
             }
             case 2:
             {
-                cout << "Time for break!" << endl;
+                cout << "Time for break!\n";
                 clock_t now = clock();
                 while(clock() - now < (delay / 2));
-                cout << "Break had ended!" << endl;
+                cout << "Break had ended!\n";
                 break;
             }
+        }
+        if (countOfPomodoros % 2 == 0){
+            cout << "You study 2 pomodoro.\nTime for big break!\n";
+            clock_t now = clock();
+            while(clock() - now < (delay));
         }
     } while (choice == 1 || choice == 2);
 
