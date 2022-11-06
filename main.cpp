@@ -3,11 +3,21 @@
 #include <fstream>
 
 using namespace std;
+
+//12 - 12 min; 60 - 60 sec,
+//CLOCKS_PER_SEC - ... maybe number of... something per second?..
+//const int DUNE(){ return 12 * 60 * CLOCKS_PER_SEC; }
+//todo in final version replace 'DUNE' on upper 'DUNE'
+const int DUNE(){ return 10 * CLOCKS_PER_SEC; }
+
+// input data (count): time in min
+void Delay(float count)
+{
+    clock_t now = clock();
+    while(clock() - now < (DUNE() * (count/12)));
+}
+//todo in final version replace 'delay' on DUNE
 int main() {
-    //12 - 12 min; 60 - 60 sec,
-    //CLOCKS_PER_SEC - ... maybe number of... something per second?..
-    //int delay = 12 * 60 * CLOCKS_PER_SEC;
-    int delay = 10 * CLOCKS_PER_SEC;
     int choice{};
     int countOfPomodoros{1};
     string activity{};
@@ -40,24 +50,21 @@ int main() {
                     fout << '\t' << activity;
                 }
                 cout << "Time for studying!" << endl;
-                clock_t now = clock();
-                while(clock() - now < (delay * 2));
+                Delay(24);
                 cout << "Good job!" << endl;
                 break;
             }
             case 2:
             {
                 cout << "Time for break!\n";
-                clock_t now = clock();
-                while(clock() - now < (delay / 2));
+                Delay(6);
                 cout << "Break had ended!\n";
                 break;
             }
         }
         if (countOfPomodoros % 2 == 0){
             cout << "You study 2 pomodoro.\nTime for big break!\n";
-            clock_t now = clock();
-            while(clock() - now < (delay));
+            Delay(12);
         }
     } while (choice == 1 || choice == 2);
 
