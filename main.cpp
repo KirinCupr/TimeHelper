@@ -7,6 +7,7 @@ using namespace std;
 //12 - 12 min; 60 - 60 sec,
 //CLOCKS_PER_SEC - ... maybe number of... something per second?..
 //const int DUNE(){ return 12 * 60 * CLOCKS_PER_SEC; }
+
 //todo in final version replace 'DUNE' on upper 'DUNE'
 const int DUNE(){ return 10 * CLOCKS_PER_SEC; }
 
@@ -16,15 +17,22 @@ void Delay(float count)
     clock_t now = clock();
     while(clock() - now < (DUNE() * (count/12)));
 }
-//todo in final version replace 'delay' on DUNE
+
+void WriteNote(string activity){
+    ofstream fout("ListOfActivities.txt", ios::app);
+    fout << "Kind of activity: " << activity << endl;
+    time_t now = time(0);
+    string dt = ctime(&now);
+    fout << "Start time: " << dt << "------------";
+    fout << endl;
+    fout.close();
+}
 int main() {
     int choice{};
     int countOfPomodoros{1};
     string activity{};
     // buffer for writing activity for further comparing
     string buffer{};
-    ofstream fout("ListOfActivities.txt", ios::app);
-
 
     cout << "Hello! Let's study!" << endl;
 
@@ -47,7 +55,7 @@ int main() {
                 else
                 {
                     buffer = activity;
-                    fout << '\t' << activity;
+                    WriteNote(activity);
                 }
                 cout << "Time for studying!" << endl;
                 Delay(24);
@@ -61,6 +69,10 @@ int main() {
                 cout << "Break had ended!\n";
                 break;
             }
+            default:
+            {
+                cout << "Exit from program..." << endl;
+            }
         }
         if (countOfPomodoros % 2 == 0){
             cout << "You study 2 pomodoro.\nTime for big break!\n";
@@ -68,7 +80,10 @@ int main() {
         }
     } while (choice == 1 || choice == 2);
 
-    fout << '\t' << countOfPomodoros << '\n';
+    //todo remade writing of PomodoroCount
+    ofstream fout("ListOfActivities.txt", ios::app);
+    //fout << '\t' << countOfPomodoros << '\n';
+    fout << "------------" << endl;
     fout.close();
     return 0;
 }

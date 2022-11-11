@@ -1,5 +1,7 @@
-MathPhysics	2
-	2	2
-	u	4
-	l	4
-	1
+Kind of activity: Math
+Start time: Fri Nov 11 12:34:44 2022
+------------
+Kind of activity: Physics
+Start time: Fri Nov 11 12:35:14 2022
+------------
+------------
