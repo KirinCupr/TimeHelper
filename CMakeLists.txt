@@ -3,4 +3,4 @@ project(TimeHelper)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(TimeHelper main.cpp)
+add_executable(TimeHelper main.cpp BaseClass.cpp BaseClass.h)
